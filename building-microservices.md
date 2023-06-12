@@ -1,3 +1,5 @@
+Notes taken while studying [Building Microservices](https://www.amazon.com.br/Building-Microservices-English-Sam-Newman-ebook/dp/B09B5L4NVT)
+
 # Building Microservices
 
 On "Why I Wrote This Book" section
@@ -48,4 +50,35 @@ or number of files is not a good approach.
 > 
 > the smaller the
 > service, the more you maximize the **benefits and DOWNSIDES (!!!)** of microservice architecture
+
+### Autonomous
+
+Each microservice is a separate entity, they should be isolated from each other, and communicate
+via network calls.
+
+They should be able to change independently of each other, and be deployed without forcing
+other microservices to change.
+
+When designing the API of a service, whe should be wary of what e expose. If we expose too much,
+we run into the risk of coupling other services to implementation details of the service itself, 
+which are not necessarily integral to the business rule. This can hinder the refactoring process later on.
+
+> Without decoupling, everything breaks down for us. The golden rule: can you make a
+> change to a service and deploy it by itself without changing anything else? If the answer is
+> no, then many of the advantages we discuss throughout this book will be hard for you to
+> achieve.
+
+### Technology Heterogeneity
+
+Having separate services allows us to use different techonologies for each one of them,
+which allows us to pick the best tools for each job, instead of a one-size-fits-all solution.
+For the same reason, the risk of trying out new techonologies is greatly reduced.
+
+### Resilience
+
+If a whole microservice fails, this crash won't propagate to the other services. They will be
+able to continue working, albeit with reduced functionality. This of course depends on how
+they communicate with each other.
+
+### Scaling
 
