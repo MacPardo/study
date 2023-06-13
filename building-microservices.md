@@ -1,16 +1,14 @@
 Notes taken while studying [Building Microservices](https://www.amazon.com.br/Building-Microservices-English-Sam-Newman-ebook/dp/B09B5L4NVT)
 
-# Building Microservices
-
 On "Why I Wrote This Book" section
 > My own experiences, as
 > well as those of my colleagues at ThoughtWorks and elsewhere, reinforced the fact that
 > using larger numbers of services with their own independent lifecycles resulted in more
 > headaches that had to be dealt with.
 
-## 1. Microservices
+# 1. Microservices
 
-### Small, and Focused on Doing One Thing Well
+## Small, and Focused on Doing One Thing Well
 
 > Microservices are small, autonomous services that work together.
 
@@ -51,7 +49,7 @@ or number of files is not a good approach.
 > the smaller the
 > service, the more you maximize the **benefits and DOWNSIDES (!!!)** of microservice architecture
 
-### Autonomous
+## Autonomous
 
 Each microservice is a separate entity, they should be isolated from each other, and communicate
 via network calls.
@@ -68,48 +66,48 @@ which are not necessarily integral to the business rule. This can hinder the ref
 > no, then many of the advantages we discuss throughout this book will be hard for you to
 > achieve.
 
-### Technology Heterogeneity
+## Technology Heterogeneity
 
 Having separate services allows us to use different techonologies for each one of them,
 which allows us to pick the best tools for each job, instead of a one-size-fits-all solution.
 For the same reason, the risk of trying out new techonologies is greatly reduced.
 
-### Resilience
+## Resilience
 
 If a whole microservice fails, this crash won't propagate to the other services. They will be
 able to continue working, albeit with reduced functionality. This of course depends on how
 they communicate with each other.
 
-### Scaling
+## Scaling
 
 When scaling a monolith, you have to increase the resources (or number of processes) for the whole monolith.
 With microservices, you can scale only the needed services, leaving other services 
 that don't stress the system running on lighter specs.
 
-### Ease of Deployment
+## Ease of Deployment
 
 Deploying a monolith can be risky. This leads to more infrequent deploying, which, ironically, increases the
 risk even more, as more changes will be deployed simultaneously. With microservices, we can make more frequent,
 smaller deploys, with lower risk. Issues with the deployment of a microservice can be isolated. 
 Rollbacks are also easier and faster.
 
-### Organizational Alignment
+## Organizational Alignment
 
 Instead of having a large team deal with a large codebase, we can have smaller teams deal with smaller
 codebases, which tends to be more productive.
 
-### Composability
+## Composability
 
 With a monolith, we usually have only one connection point (usually a single exposed API for a client app).
 However, with microservices, we can have multiple connection points, allowing much more flexibility
 on how we reuse our services.
 
-### Optimizing for Repleceability
+## Optimizing for Repleceability
 
 Replacing a legacy monolith is expensive and dangerous. Replacing (or removing) a microservice for a better implementation
 is faster and safer.
 
-### What about Service-Oriented Architecture?
+## What about Service-Oriented Architecture?
 
 > Service-oriented architecture (SOA) is a design approach where multiple services
 > collaborate to provide some end set of capabilities. A service here typically means a
@@ -120,9 +118,9 @@ is faster and safer.
 > microservices as a specific approach for SOA in the same way that XP or Scrum are
 > specific approaches for Agile software development
 
-### Other decompositional techniques
+## Other decompositional techniques
 
-#### Shared Libraries
+### Shared Libraries
 
 - You lose true technology heterogeneity
 - Cannot scale library code separately from process which uses it 
@@ -130,7 +128,7 @@ is faster and safer.
 - Less system resiliency
 - Can be a good option for common tasks which aren't specific to the business domain
 
-#### Modules (like erlang processes)
+### Modules (like erlang processes)
 
 - They have some advantages over shared libraries, however
 - We also lose some technology heterogeneity (the author didn't say this, but I think you could just transform a module into
@@ -148,13 +146,13 @@ is faster and safer.
 > it is interesting that the promises of modular separation within process boundaries rarely
 > deliver in the real world.
 
-### No silver bullet
+## No silver bullet
 
 > microservices are no free lunch or silver bullet, and
 > make for a bad choice as a golden hammer. They have all the associated complexities of
 > distributed systems, and while we have learned a lot about how to manage distributed
 > systems well, it is still hard
 
-## 2. The Evolutionary Architect
+# 2. The Evolutionary Architect
 
 
