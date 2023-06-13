@@ -88,4 +88,73 @@ that don't stress the system running on lighter specs.
 
 ### Ease of Deployment
 
+Deploying a monolith can be risky. This leads to more infrequent deploying, which, ironically, increases the
+risk even more, as more changes will be deployed simultaneously. With microservices, we can make more frequent,
+smaller deploys, with lower risk. Issues with the deployment of a microservice can be isolated. 
+Rollbacks are also easier and faster.
+
+### Organizational Alignment
+
+Instead of having a large team deal with a large codebase, we can have smaller teams deal with smaller
+codebases, which tends to be more productive.
+
+### Composability
+
+With a monolith, we usually have only one connection point (usually a single exposed API for a client app).
+However, with microservices, we can have multiple connection points, allowing much more flexibility
+on how we reuse our services.
+
+### Optimizing for Repleceability
+
+Replacing a legacy monolith is expensive and dangerous. Replacing (or removing) a microservice for a better implementation
+is faster and safer.
+
+### What about Service-Oriented Architecture?
+
+> Service-oriented architecture (SOA) is a design approach where multiple services
+> collaborate to provide some end set of capabilities. A service here typically means a
+> completely separate operating system process. Communication between these services
+> occurs via calls across a network rather than method calls within a process boundary.
+
+> you should instead think of
+> microservices as a specific approach for SOA in the same way that XP or Scrum are
+> specific approaches for Agile software development
+
+### Other decompositional techniques
+
+#### Shared Libraries
+
+- You lose true technology heterogeneity
+- Cannot scale library code separately from process which uses it 
+- Cannot deploy library separately from the entire process (except with dinamically linked libraries)
+- Less system resiliency
+- Can be a good option for common tasks which aren't specific to the business domain
+
+#### Modules (like erlang processes)
+
+- They have some advantages over shared libraries, however
+- We also lose some technology heterogeneity (the author didn't say this, but I think you could just transform a module into
+  an adapter which communicates with a microservice written to substitute the module)
+- Limited in how we can scale independently (not sure if this applies to erlang though)
+- Can drift toward integration techniques that are overly coupling (this I agree with)
+- Lack seams for architectural safety measures (I'm also not sure about this, Erlang is very good with fault tolerance)
+
+> Technically, it should be possible to create
+> well-factored, independent modules within a single monolithic process. And yet we rarely
+> see this happen. The modules themselves soon become tightly coupled with the rest of the
+> code, surrendering one of their key benefits. Having a process boundary separation does
+> enforce clean hygiene in this respect (or at least makes it harder to do the wrong thing!). I
+> wouldn’t suggest that this should be the main driver for process separation, of course, but
+> it is interesting that the promises of modular separation within process boundaries rarely
+> deliver in the real world.
+
+### No silver bullet
+
+> microservices are no free lunch or silver bullet, and
+> make for a bad choice as a golden hammer. They have all the associated complexities of
+> distributed systems, and while we have learned a lot about how to manage distributed
+> systems well, it is still hard
+
+## 2. The Evolutionary Architect
+
 
