@@ -82,3 +82,10 @@ they communicate with each other.
 
 ### Scaling
 
+When scaling a monolith, you have to increase the resources (or number of processes) for the whole monolith.
+With microservices, you can scale only the needed services, leaving other services 
+that don't stress the system running on lighter specs.
+
+### Ease of Deployment
+
+
