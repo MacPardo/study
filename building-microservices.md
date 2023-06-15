@@ -155,4 +155,36 @@ is faster and safer.
 
 # 2. The Evolutionary Architect
 
+An architect should't worry to much about details, and leave implementation details to the teams temselves.
+Instead, they should focus on how information flows from service to service. They are more alike to a
+city planner than to an actual architect.
+
+*I'm ignoring most of this chapter because it is not very relevant for what I want to learn now*
+
+# 3. How to Model Services
+
+## What makes a good service?
+
+Loose coupling and high cohesion
+
+## Loose coupling
+
+> When services are loosely coupled, a change to one service should not require a change to
+> another
+
+Tight coupling can be caused by certain integration strategies
+
+> A loosely coupled service knows as little as it needs to about the services with which it
+> collaborates. This also means we probably want to limit the number of different types of
+> calls from one service to another, because beyond the potential performance problem,
+> chatty communication can lead to tight coupling.
+
+## High cohesion
+
+> We want related behavior to sit together, and unrelated behavior to sit elsewhere
+
+We change code when we have to change behavior. Changes in one behavior should
+only affect one service.
+
+## The bounded context
 
